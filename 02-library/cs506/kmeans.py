@@ -2,6 +2,7 @@ from collections import defaultdict
 from math import inf
 import random
 import csv
+from cs506 import sim
 
 
 def point_avg(points):
@@ -39,21 +40,25 @@ def assign_points(data_points, centers):
     return assignments
 
 
-def distance(a, b):
+def distance(a, b): # MADE
     """
     Returns the Euclidean distance between a and b
     """
-    raise NotImplementedError()
+    return sim.euclidean_dist(a, b)
 
 def distance_squared(a, b):
     raise NotImplementedError()
 
-def generate_k(dataset, k):
+def generate_k(dataset, k): # MADE
     """
     Given `data_set`, which is an array of arrays,
     return a random set of k points from the data_set
     """
-    raise NotImplementedError()
+    res = []
+    random.shuffle(range(len(dataset)))
+    for i in range(k):
+        res.append(dataset[i])
+    return res
 
 def cost_function(clustering):
     raise NotImplementedError()
